@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Babys first Web API</title>
+    <link rel="stylesheet" href="css.css">
     
 </head>
 <body>
@@ -17,12 +18,19 @@
         <div id="Questions"></div>
         <div id="answersArea"></div>
     </p>
-    
-
+<!--Hidden gameover-->
+<div id="end-screen" class="hide">
+    <h2>All done!</h2>
+    <p>Your final score is <span id="final-score"></span>.</p>
+    <p>
+      Enter initials: <input type="text" id="initials" max="3" />
+      <button id="submit">Submit</button>
+      <button id="Restart">Retry?</button>
+    </p>
 
 
 <!--Retry Button-->
-<button id="Restart">Retry?</button>
+
 
 
 <script src="Javascript.js"></script>

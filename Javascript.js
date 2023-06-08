@@ -6,6 +6,7 @@ var counter;
       
     var currentIndex = 0
 
+    // questions
 var questionsAll =[
      { 
         question : "What is a fruit", 
@@ -34,18 +35,19 @@ var questionsAll =[
     }
 
 ]
-//append or appendchild
 
-//Make a timer for starting fucntion
 var StartButton = document.getElementById("StartButton");
 
 StartButton.addEventListener("click",StartGame);
 
+//starts game
 function StartGame(){
     timerDown();
     questionsUp();
+    StartButton.classList.add('hide');
 }
 
+//Starts the timer and counts down
 function timerDown(){
      seconds = 20;
     function tick() {
@@ -55,12 +57,13 @@ function timerDown(){
         if(seconds > 0){
                 setTimeout(tick, 1000);
             } else {
-                alert("time is Up!");
+                gameOver    ()
             }
     }
     tick();
 }
 
+//brings the questions up
 function questionsUp(){
     var currentQuestion = questionsAll[currentIndex]
 
@@ -75,8 +78,11 @@ function questionsUp(){
             choiceBTN.textContent=currentChoices;
             answerArea.appendChild(choiceBTN)
         }
-    //questionArea.innerHTML = question; 
-}
+        }
+
+
+
+// when clicking the answer, brigns up next question and game overs it if seconds reach 0
 function answerClick(event){
     var answerButton = event.target
     if(!answerButton.matches(".choice")){
@@ -88,7 +94,7 @@ function answerClick(event){
     }
     currentIndex++
     if (seconds <=0 || currentIndex === questionsAll.length){
-        console.log("gameover")
+        gameOver();
     }
     else{
         questionsUp();
@@ -97,13 +103,28 @@ function answerClick(event){
     //game over function needed
 
 }
+// End Screen
+    var endScreen = document.getElementById('end-screen');
+function gameOver() {
+    clearInterval(timerDown); 
+    Questions.classList.add('hide');
+    answersArea.classList.add('hide');
+    endScreen.classList.remove('hide');
+
+}
+// retry btt document.reload, hide button till gameOver appeared
+function Restart(){
+    window.location.reload();
+}
+var retryGame = document.getElementById("Restart");
+retryGame.addEventListener("click",Restart);
 
 
 
-// fucntion gameOver
-
-//retry btt document.reload, hide button till gameOver appeared
+//
 answerArea.onclick = answerClick;
 
+// retry button: hide it
+//
 
 };
