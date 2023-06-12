@@ -2,8 +2,8 @@ window.onload = function () {
 var seconds;
 var counter;
     var questionArea = document.getElementById('Questions');
-    var  answerArea  = document.getElementById('answersArea');
-      
+    var answerArea  = document.getElementById('answersArea');
+    var score = 0  
     var currentIndex = 0
 
     // questions
@@ -88,7 +88,9 @@ function answerClick(event){
     if(!answerButton.matches(".choice")){
         return;
     }
-    if(answerButton.value !== questionsAll[currentIndex].correct){
+    if (answerButton.value !== questionsAll[currentIndex].correct) {
+        score++; // Increment score if the answer is correct
+    } else {
         seconds -= 3;
         counter.textContent = seconds;
     }
@@ -110,7 +112,7 @@ function gameOver() {
     Questions.classList.add('hide');
     answersArea.classList.add('hide');
     endScreen.classList.remove('hide');
-
+    document.getElementById('score').textContent = score;
 }
 // retry btt document.reload, hide button till gameOver appeared
 function Restart(){
