@@ -1,3 +1,23 @@
 .hide{
     display: none;
 }
+
+.body{
+    background-color: rgb(254, 239, 140);
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button{
+background-color: rgb(255, 174, 0);
+display: inline-block;
+padding: 10px 20px;
+font-size: 16px;
+text-align: center;
+text-decoration: none;
+color: #000000;
+border: none;
+border-radius: 4px;
+justify-content: center;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

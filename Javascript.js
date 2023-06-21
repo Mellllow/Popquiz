@@ -9,29 +9,29 @@ var counter;
     // questions
 var questionsAll =[
      { 
-        question : "What is a fruit", 
-        answers: ["apple", "ball"],
-        correct: "apple",
+        question : "Commonly used data types do NOT include", 
+        answers: ["Boolean", "Alerts", "Strings", "Numbers"],
+        correct: "Alerts",
     },
      { 
-        question : "What is made of the ocean", 
-        answers: ["water", "dirt"],
-        correct: "water",
+        question : "The condition of an if/else statement is enclosed within ______.", 
+        answers: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"],
+        correct: "Parentheses",
     },
      { 
-        question : "What is the color of leaves", 
-        answers: ["Green", "fire"],
-        correct: "Green",
+        question : "Arrays in Javascript can be used to store ______.", 
+        answers: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Rest"],
+        correct: "All of the Rest",
     },
     { 
-        question : "What is a ball?", 
-        answers: ["apple", "ball"],
-        correct: "ball",
+        question : "String values must be enclosed within ______ when being assigned to variables", 
+        answers: ["Quotes", "Curly Brackets", "Commas", "Parentheses"],
+        correct: "Quotes",
     },
     { 
-        question : "What do humans breath", 
-        answers: ["water", "Air"],
-        correct: "Air",
+        question : "A very useful tool used during development and debugging for printing content to the debugger is:", 
+        answers: ["Javascript", "console.log", "Terminal/Bash", "For Loops"],
+        correct: "console.log",
     }
 
 ]
@@ -49,7 +49,7 @@ function StartGame(){
 
 //Starts the timer and counts down
 function timerDown(){
-     seconds = 20;
+     seconds = 60;
     function tick() {
          counter = document.getElementById("counter");
         seconds--;
@@ -88,8 +88,9 @@ function answerClick(event){
     if(!answerButton.matches(".choice")){
         return;
     }
-    if (answerButton.value !== questionsAll[currentIndex].correct) {
+    if (answerButton.value == questionsAll[currentIndex].correct) {
         score++; // Increment score if the answer is correct
+        document.getElementById('Score').textContent = score;
     } else {
         seconds -= 3;
         counter.textContent = seconds;
